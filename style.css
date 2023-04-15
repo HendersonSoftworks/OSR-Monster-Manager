@@ -1,3 +1,9 @@
+body {
+    text-align: center;
+    background-color: burlywood;
+    color: black;
+}
+
 table, th, td {
     border: 1px solid ;
     text-align: center;
@@ -11,8 +17,23 @@ input {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    }
+
+    background-color: blanchedalmond;
+}
+
+.panel {
+    min-width: auto;
+    height: auto;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.name {
+    grid-column: 1 / 3;
+}

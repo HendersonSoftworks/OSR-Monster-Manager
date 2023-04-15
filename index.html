@@ -11,39 +11,32 @@
 <body>
     <h1>OSR Monster Manager</h1>
     <div class="grid-container">
-        <div class="test-enemy">
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>HD</th>
-                    <th>AC</th>
-                    <th>DMG</th>
-                    <th>ABI</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" value="Goblin">
-                    </td>
-                    <td>
-                        <input type="text" value="1">
-                    </td>
-                    <td>
-                        <input type="text" value="11">
-                    </td>
-                    <td>
-                        <input type="text" value="1d6">
-                    </td>
-                    <td>
-                        <input type="text" value="None">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>Add</button>
-                    </td>
-                </tr>
-            </table>
+        <div class="enemy-panel">
+            <div class="name panel">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="" value="Goblin">
+            </div>
+            <div class="ac panel">
+                <label for="">AC</label>
+                <input type="text" name="" id="" value="11">
+            </div>
+            <div class="dmg panel">
+                <label for="">DMG</label>
+                <input type="text" name="" id="" value="1d6">
+            </div>
+            <div class="hd panel">
+                <label for="">HD</label>
+                <input type="text" name="" id="" value="1">
+            </div>
+            <div class="abi panel">
+                <label for="">ABI</label>
+                <input type="text-area" name="" id="" value="NA">
+            </div>
+            <div class="add panel">
+                <button>Add</button>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
