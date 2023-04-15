@@ -1,7 +1,7 @@
 body {
     text-align: center;
-    background-color: burlywood;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 table, th, td {
@@ -15,6 +15,14 @@ input {
     vertical-align: middle;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    display: grid;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -22,18 +30,31 @@ input {
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 
-    background-color: blanchedalmond;
+    background-color: grey;
+    padding: 10px;
+    max-width: 750px;
+}
+
+.add-btn {
+    grid-column: 1 /3;  
+}
+
+.enemy-panel {
+    padding: 10px;
+    background-color: black;
 }
 
 .panel {
     min-width: auto;
     height: auto;
-    background-color: brown;
+    background-color: black;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    color: white;
 }
 
 .name {
     grid-column: 1 / 3;
 }
+

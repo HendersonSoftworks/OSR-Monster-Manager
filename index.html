@@ -10,33 +10,40 @@
 
 <body>
     <h1>OSR Monster Manager</h1>
-    <div class="grid-container">
-        <div class="enemy-panel">
-            <div class="name panel">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="" value="Goblin">
-            </div>
-            <div class="ac panel">
-                <label for="">AC</label>
-                <input type="text" name="" id="" value="11">
-            </div>
-            <div class="dmg panel">
-                <label for="">DMG</label>
-                <input type="text" name="" id="" value="1d6">
-            </div>
-            <div class="hd panel">
-                <label for="">HD</label>
-                <input type="text" name="" id="" value="1">
-            </div>
-            <div class="abi panel">
-                <label for="">ABI</label>
-                <input type="text-area" name="" id="" value="NA">
-            </div>
-            <div class="add panel">
-                <button>Add</button>
+    <div class="container">
+        
+        <div class="grid-container">
+            <button class="add-btn">Add New Monster</button>
+            <div class="enemy-panel">
+                <div class="name panel">
+                    <label for="">Name</label>
+                    <input type="text" name="name" id="" value="Goblin">
+                </div>
+                <div class="ac panel">
+                    <label for="">AC</label>
+                    <input type="text" name="" id="" value="11">
+                </div>
+                <div class="dmg panel">
+                    <label for="">DMG</label>
+                    <input type="text" name="" id="" value="1d6">
+                </div>
+                <div class="hd panel">
+                    <label for="">HD</label>
+                    <input type="text" name="" id="" value="1">
+                </div>
+                <div class="abi panel">
+                    <label for="">ABI</label>
+                    <input type="text-area" name="" id="" value="NA">
+                </div>
             </div>
         </div>
     </div>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous">
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
