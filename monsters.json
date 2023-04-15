@@ -1,0 +1,44 @@
+{
+    "0" : {
+    "name" : "Cultist Minion",
+    "HD"   : "1",
+    "AC"   : "11",
+    "DMG"  : "1d6 (sword, cudgel, hammer)",
+    "ABI"  : "NA"
+    },
+    "1" : {
+    "name" : "Cultist Leader",
+    "HD"   : "2",
+    "AC"   : "12",
+    "DMG"  : "1d8 (flaming mace)",
+    "ABI"  : "NA"
+    },
+    "2" : {
+    "name" : "Cultist Priest",
+    "HD"   : "1",
+    "AC"   : "11",
+    "DMG"  : "1d6 (necrotic blast)",
+    "ABI"  : "1d6 = 1, summon skeleton (use cultist minion stats)"
+    },
+    "3" : {
+    "name" : "Red Skeleton",
+    "HD"   : "2",
+    "AC"   : "13",
+    "DMG"  : "1d4",
+    "ABI"  : "Screams at player, DEX save or -2 AC next round"
+    },
+    "4" : {
+    "name" : "Many-Eyed Snail",
+    "HD"   : "2",
+    "AC"   : "14",
+    "DMG"  : "1d6 (tentacle)",
+    "ABI"  : "After being attacked with melee or spell: (1) INT save or have spell reflected back to user (2) CON save or for 1 round: Attacks against target have advantage, Snail cannot move while this is active"
+    },
+    "5" : {
+    "name" : "Lost Visage",
+    "HD"   : "3",
+    "AC"   : "14",
+    "DMG"  : "1d6 (stinger)",
+    "ABI"  : "CON save or for 1 round: Attacks against target have advantage and attacks with disadvantage"
+    }
+}
