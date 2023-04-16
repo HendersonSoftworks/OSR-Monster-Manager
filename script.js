@@ -1,44 +1,37 @@
-let monsters = [];
+let monsters_apis = [];
+let monsters_objs = [];
 let last_grid_el;
 
-async function GetMonsters()
+async function Getmonsters_apis()
 {
-    let response = await fetch('monsters.json');
+    let response = await fetch('https://www.dnd5eapi.co/api/monsters/');
     let data = await response.json();
+
     return data;
 }
 
-function PopulateSelectPanel(json)
+async function PopulateMonsterAPIs(json)
 {
-    for (let i = 0; i < json.length; i++) {
-        monsters[i] = json[i];
-    }
+    monsters_apis = monsters_apis.results
+    console.log(monsters_apis);
 
-    // this isn't working
-    for (let i = 0; i < monsters.length; i++) {
-        last_grid_el = $('.monster-select-panel').clone();
-        last_grid_el.find("span")[0].innerHTML = monsters[i].name;
-    
-        $(last_grid_el).appendTo(".monster-modal");        
+    console.log("Configuring monster objects...")
+    for (let i = 0; i < monsters_apis.length; i++) {
+        let response = await fetch('https://www.dnd5eapi.co' + monsters_apis[i].url);
+        let data = await response.json();
+        monsters_objs[i] = data;
     }
-
-   
+    console.log("Monster objects configured");
 }
 
 // populate sample goblins
-for (let i = 0; i < 2; i++) 
-{
-    let last_grid_el = $('.enemy-panel').clone();
-    $(last_grid_el).appendTo(".grid-container");
-}
-
-// populate selection modoal
-// for (let i = 0; i < 4; i++) 
+// for (let i = 0; i < 2; i++) 
 // {
-//     let last_grid_el = $('.monster-select-panel').clone();
-//     $(last_grid_el).appendTo(".monster-modal");
+//     let last_grid_el = $('.enemy-panel').clone();
+//     $(last_grid_el).appendTo(".grid-container");
 // }
 
+// Add event listeners
 $(".add-btn").click(function() {
     $(".monster-modal").toggle()
 });
@@ -48,7 +41,17 @@ $(".monster-select-panel").click(function() {
     console.log("adding monster to manager panel...")
 });
 
-GetMonsters()
-    .then(data => (monsters = data))
-    //.then(monsters => (PopulateSelectPanel(monsters)));
-    .then(monsters => (PopulateSelectPanel(monsters)));
+// Call APIs on startup
+Getmonsters_apis().then(data => (monsters_apis = data))
+    .then(monsters_apis => (PopulateMonsterAPIs(monsters_apis)));
+
+// Populate Modal
+for (let i = 0; i < 2; i++) {
+    let last_grid_el = $('.monster-select-panel').clone();
+    $(last_grid_el).appendTo(".monster-modal");
+    
+    let name = $(last_grid_el)[0].getElementsByTagName('span')[0].innerHTML + i;
+    $(last_grid_el)[0].getElementsByTagName('span')[0].innerHTML = name;
+
+    console.log(name);
+}
