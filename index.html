@@ -10,59 +10,36 @@
 
 <body>
     <h1>OSR Monster Manager</h1>
-    <div class="container">
-        
-        <div class="grid-container">
-            <button class="add-btn">Add New Monster</button>
-            <div class="enemy-panel">
-                <div class="name panel">
-                    <label for="">Name</label>
-                    <input type="text" name="name" id="" value="Goblin">
-                </div>
-                <div class="ac panel">
-                    <label for="">AC</label>
-                    <input type="text" name="" id="" value="11">
-                </div>
-                <div class="dmg panel">
-                    <label for="">DMG</label>
-                    <input type="text" name="" id="" value="1d6">
-                </div>
-                <div class="hd panel">
-                    <label for="">HD</label>
-                    <input type="text" name="" id="" value="1">
-                </div>
-                <div class="abi panel">
-                    <label for="">ABI</label>
-                    <input type="text-area" name="" id="" value="NA">
-                </div>
+
+    <template class="monster-template">
+        <div class="monster-panel">
+            <div class="name">
+                <div class="name-label">Name:</div>
+                <div class="name-text">null</div>
             </div>
-        </div>
-    </div>
-    <div class="monster-modal">
-        <div class="monster-select-panel">
-            <div class="name panel">
-                <label for="">Name</label>
-                <span>Goblin</span>
+            <div class="hp">
+                <div class="hp-label">HP:</div>
+                <div class="hp-text">null</div>
             </div>
-            <div class="ac panel">
-                <label for="">AC</label>
-                <span>11</span>
+            <div class="ac">
+                <div class="ac-label">AC:</div>
+                <div class="ac-text">null</div>   
             </div>
-            <div class="dmg panel">
-                <label for="">DMG</label>
-                <span>1d6</span>
+            <div class="speed">
+                <div class="speed-label">Speed:</div>
+                <div class="speed-text">null</div>   
             </div>
-            <div class="hd panel">
-                <label for="">HD</label>
-                <span>1</span>
+            <div class="abilities">
+                <div class="abilities-label">Abilities:</div>
+                <div class="abilities-text">null</div>   
             </div>
-            <div class="abi panel">
-                <label for="">ABI</label>
-                <span>NA</span>
+            <div class="attacks">
+                <div class="abilities-label">Attacks:</div>
+                <div class="abilities-text">null</div>   
             </div>
-        </div>
-        
-    </div>
+        </div>    
+    </template>
+
     <script 
         src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="

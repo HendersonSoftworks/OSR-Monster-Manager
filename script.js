@@ -1,6 +1,5 @@
 let monsters_apis = [];
 let monsters_objs = [];
-let last_grid_el;
 
 async function Getmonsters_apis()
 {
@@ -12,7 +11,7 @@ async function Getmonsters_apis()
 
 async function PopulateMonsterAPIs(json)
 {
-    monsters_apis = monsters_apis.results
+    monsters_apis = json.results
     console.log(monsters_apis);
 
     console.log("Configuring monster objects...")
@@ -24,34 +23,45 @@ async function PopulateMonsterAPIs(json)
     console.log("Monster objects configured");
 }
 
-// populate sample goblins
-// for (let i = 0; i < 2; i++) 
-// {
-//     let last_grid_el = $('.enemy-panel').clone();
-//     $(last_grid_el).appendTo(".grid-container");
-// }
-
-// Add event listeners
-$(".add-btn").click(function() {
-    $(".monster-modal").toggle()
-});
-
-$(".monster-select-panel").click(function() {
-    $(".monster-modal").toggle()
-    console.log("adding monster to manager panel...")
-});
-
-// Call APIs on startup
-Getmonsters_apis().then(data => (monsters_apis = data))
-    .then(monsters_apis => (PopulateMonsterAPIs(monsters_apis)));
-
-// Populate Modal
-for (let i = 0; i < 2; i++) {
-    let last_grid_el = $('.monster-select-panel').clone();
-    $(last_grid_el).appendTo(".monster-modal");
+function PrintMonstersToTemplate(_monster_objects) {
+    let monster_template = $(".monster-template").html();
     
-    let name = $(last_grid_el)[0].getElementsByTagName('span')[0].innerHTML + i;
-    $(last_grid_el)[0].getElementsByTagName('span')[0].innerHTML = name;
+    console.log(_monster_objects);
 
-    console.log(name);
+    _monster_objects.forEach(element => {
+        let name = element.name;
+        let hp = element.hit_points;
+        let ac = element.armor_class[0].value;
+        let speed = element.speed.walk
+        let abilities 
+
+        let panel = $(monster_template);
+        
+        panel.find(".name-text").text(element.name);
+        panel.find(".hp-text").text(element.hit_points);
+        panel.find(".ac-text").text(element.armor_class[0].value);
+        panel.find(".speed-text").text(element.speed.walk);
+        panel.find(".abilities-text").text(element.abilities);
+        panel.find(".attacks-text").text(element.attacks);
+
+        $("body").append(panel);
+    });
 }
+
+// testing
+// fetch('https://www.dnd5eapi.co/api/monsters/')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error('Error:', error));
+
+// Populate monster objs by iterating APIs on startup
+// Getmonsters_apis().then(data => (monsters_apis = data))
+//     .then(monsters_apis => (PopulateMonsterAPIs(monsters_apis)))
+//     //.then(console.log(monsters_objs))
+//     .then(PrintMonstersToTemplate(monsters_objs));
+    
+Getmonsters_apis().then(data => (monsters_apis = data))
+    .then(async monsters_apis => {
+        await PopulateMonsterAPIs(monsters_apis);
+        PrintMonstersToTemplate(monsters_objs);
+    });
